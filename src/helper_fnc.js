@@ -19,7 +19,7 @@ const helperFunction = (() => {
         const minute = time[1]
         const hourTime = ((hour + 11) % 12 + 1)
         const newTime = `${hourTime}:${minute}`
-        if(hour <= 12){
+        if(hour < 12){
             return `${newTime} AM`
         }
         return `${newTime} PM`  
@@ -28,18 +28,30 @@ const helperFunction = (() => {
     const FToC = (temp) => {
         const getNum = temp.split('°')[0]
         const numTemp = Number(getNum)
-        const celsius = Math.round((numTemp - 32) * (5/9))
+        const celsius = Math.round(((numTemp - 32) * (5/9))* 10)/10
         return `${celsius} °C`
     }
 
     const CToF = (temp) => {
         const getNum = temp.split('°')[0]
         const numTemp = Number(getNum)
-        const fahrenheit = Math.round((numTemp * 9/5) + (32))
+        const fahrenheit = Math.round(((numTemp * 9/5) + (32)) * 10)/10
         return `${fahrenheit} °F`
     }
 
-    return {getURL,formatDate,formatTime, FToC, CToF}
+    const mToK = (speed) => {
+        const formatSpeed = Number(speed.split(' ')[0])
+        const kph = Math.round((formatSpeed * 1.609) * 10)/10
+        return `${kph} kph`
+    }
+
+    const kToM = (speed) => {
+        const formatSpeed = Number(speed.split(' ')[0])
+        const mph = Math.round((formatSpeed / 1.609) * 10)/10
+        return `${mph} mph`
+    }
+
+    return {getURL,formatDate,formatTime, FToC, CToF,mToK,kToM}
 })()
 
 export default helperFunction
