@@ -50,8 +50,9 @@ const helperFunction = (() => {
         const mph = Math.round((formatSpeed / 1.609) * 10)/10
         return `${mph} mph`
     }
+    const getRandomNumber = () => Math.floor(Math.random() * 13);
 
-    return {getURL,formatDate,formatTime, FToC, CToF,mToK,kToM}
+    return {getURL,formatDate,formatTime, FToC, CToF,mToK,kToM, getRandomNumber}
 })()
 
 export default helperFunction
