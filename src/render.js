@@ -36,14 +36,14 @@ const renderWeather = (() => {
             temperature.textContent = `${weather.current.temp_f} °F`
         }
         const number = helperFunction.getURL(weather.current.condition.icon)
-        const dayURL = String(`./background_imgs/day_imgs/${helperFunction.getRandomNumber()}.jpg`)
-        const nightURL = `./background_imgs/night_imgs/${helperFunction.getRandomNumber()}.jpg`
+        const dayURL = String(`background_imgs/day_imgs/${helperFunction.getRandomNumber()}.jpg`)
+        const nightURL = `background_imgs/night_imgs/${helperFunction.getRandomNumber()}.jpg`
         if(weather.current.is_day === 0){
-            img.src = `./weather_icons/night_weather/${number}.svg`
+            img.src = `weather_icons/night_weather/${number}.svg`
             document.body.style.backgroundImage = `url(${nightURL})`
         }
         if(weather.current.is_day === 1){
-            img.src = `./weather_icons/day_weather/${number}.svg`
+            img.src = `weather_icons/day_weather/${number}.svg`
             document.body.style.backgroundImage = `url(${dayURL})`
         }
         details.textContent = weather.current.condition.text
